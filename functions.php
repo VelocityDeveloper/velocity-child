@@ -31,7 +31,7 @@ if( ! function_exists( 'justg_child_enqueue_parent_style') ) {
             $theme->parent()->get('Version')
         );
         
-        $css_version = $theme->parent()->get('Version') . '.' . filemtime( get_stylesheet_directory_uri() . '/css/custom.css' );
+        $css_version = $theme->parent()->get('Version') . '.' . filemtime( get_stylesheet_directory() . '/css/custom.css' );
         wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/css/custom.css', 
             array(),  // if the parent theme code has a dependency, copy it to here
             $css_version
@@ -42,7 +42,7 @@ if( ! function_exists( 'justg_child_enqueue_parent_style') ) {
             $theme->get('Version')
         );
         
-        $js_version = $theme->parent()->get('Version') . '.' . filemtime( get_stylesheet_directory_uri() . '/js/custom.js' );
+        $js_version = $theme->parent()->get('Version') . '.' . filemtime( get_stylesheet_directory() . '/js/custom.js' );
         wp_enqueue_script( 'justg-custom-scripts', get_stylesheet_directory_uri() . '/js/custom.js', array(), $js_version, true );
 
 	}
