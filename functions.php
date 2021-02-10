@@ -81,30 +81,30 @@ function your_parent_theme_setup() {
 	* Sample Field
 	* 
 	*/ 
-	Kirki::add_field( 'justg_config', [
-		'type'        => 'repeater',
-		'label'       => esc_html__( 'Slider Home', 'justg' ),
-		'section'     => 'home_slider',
-		'priority'    => 10,
-		'row_label' => [
-			'type'  => 'text',
-			'value' => esc_html__( 'Slide', 'justg' ),
-		],
-		'button_label' => esc_html__('Tambah Slide', 'justg' ),
-		'settings'     => 'home_slider_setting',
-		'fields' => [
-			'image' => [
-				'type'        => 'image',
-				'label'       => esc_html__( 'Gambar', 'justg' ),
-				'description' => esc_html__( 'gunakan gambar dengan ukuran sama', 'justg' ),
-				'default'     => '',
-			],
-			'link_url'  => [
-				'type'        => 'text',
-				'label'       => esc_html__( 'Url slide', 'justg' ),
-				'description' => esc_html__( 'link saat gambar di klik', 'justg' ),
-				'default'     => '',
-			],
-		]
-	] );
+	// Kirki::add_field( 'justg_config', [
+	// 	'type'        => 'repeater',
+	// 	'label'       => esc_html__( 'Slider Home', 'justg' ),
+	// 	'section'     => 'home_slider',
+	// 	'priority'    => 10,
+	// 	'row_label' => [
+	// 		'type'  => 'text',
+	// 		'value' => esc_html__( 'Slide', 'justg' ),
+	// 	],
+	// 	'button_label' => esc_html__('Tambah Slide', 'justg' ),
+	// 	'settings'     => 'home_slider_setting',
+	// 	'fields' => [
+	// 		'image' => [
+	// 			'type'        => 'image',
+	// 			'label'       => esc_html__( 'Gambar', 'justg' ),
+	// 			'description' => esc_html__( 'gunakan gambar dengan ukuran sama', 'justg' ),
+	// 			'default'     => '',
+	// 		],
+	// 		'link_url'  => [
+	// 			'type'        => 'text',
+	// 			'label'       => esc_html__( 'Url slide', 'justg' ),
+	// 			'description' => esc_html__( 'link saat gambar di klik', 'justg' ),
+	// 			'default'     => '',
+	// 		],
+	// 	]
+	// ] );
 }
