@@ -14,6 +14,9 @@
  *
  */
 
+ //load shortcode
+require_once('inc/shortcode.php');
+
 /**
  * Load the parent style.css file
  *
