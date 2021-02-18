@@ -111,3 +111,17 @@ function your_parent_theme_setup() {
 	// 	]
 	// ] );
 }
+
+// Hide bbplugin update
+function bbnon_plugin_updates( $value ) {
+    unset( $value->response['bb-plugin/fl-builder.php'] );
+    unset( $value->response['bb-theme-builder/bb-theme-builder.php'] );
+    return $value;
+}
+add_filter( 'site_transient_update_plugins', 'bbnon_plugin_updates' );
+
+// Hide wordpress update
+function hide_update_notice_to_all_but_admin_users() {
+    remove_action( 'admin_notices', 'update_nag', 3 );
+}
+add_action( 'admin_head', 'hide_update_notice_to_all_but_admin_users', 1 );
