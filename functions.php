@@ -16,7 +16,7 @@
 
  //load shortcode
 require_once('inc/short.php');
-require_once('inc/class/ClassPpdb.php');
+require_once('inc/class/ManageTable.php');
 /**
  * Load the parent style.css file
  *
