@@ -15,8 +15,8 @@
  */
 
  //load shortcode
-require_once('inc/shortcode.php');
-
+require_once('inc/short.php');
+require_once('inc/class/ClassPpdb.php');
 /**
  * Load the parent style.css file
  *
