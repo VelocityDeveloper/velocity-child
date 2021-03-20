@@ -90,8 +90,8 @@ $baru = [ 'Wandi', 'wandi@gmail.com', 'Laki-Laki', 'Klaten', '1990-05-3', 'islam
 $update = [ 'Wandi P', 'wandi@gmail.com', 'Laki-Laki', 'Klaten', '1990-05-3', 'islam', '082147650800', 'Tunggul, jarum, Bayat, Klaten', date('Y-m-d H:i:s')];
 
 // Run ManageTable
-$PPDB = new ManageTable('ppdb', $args);
-$PPDB->run();
+// $PPDB = new ManageTable('ppdb', $args);
+// $PPDB->run();
 
 // Insert data to table based on $args
 // $PPDB->insert($baru);
