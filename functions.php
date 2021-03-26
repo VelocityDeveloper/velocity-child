@@ -48,12 +48,12 @@ if( ! function_exists( 'justg_child_enqueue_parent_style') ) {
 	}
 }
 
-add_action( 'after_setup_theme', 'your_parent_theme_setup', 9 );
+add_action( 'after_setup_theme', 'velocitychild_theme_setup', 9 );
 
-function your_parent_theme_setup() {
+function velocitychild_theme_setup() {
 	
 	// Load justg_child_enqueue_parent_style after theme setup
-	add_action( 'wp_enqueue_scripts', 'justg_child_enqueue_parent_style' );
+	add_action( 'wp_enqueue_scripts', 'justg_child_enqueue_parent_style', 20 );
 
 	
 	/**
