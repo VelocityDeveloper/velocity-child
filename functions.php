@@ -111,3 +111,43 @@ function velocitychild_theme_setup() {
 		
 	endif;
 }
+
+//[resize-thumbnail width="300" height="150" linked="true"]
+add_shortcode('resize-thumbnail', 'resize_thumbnail');
+function resize_thumbnail($atts) {
+    ob_start();
+	global $post;
+    $atribut = shortcode_atts( array(
+        'output'	=> 'image', /// image or url
+        'width'    	=> '300', ///width image
+        'height'    => '150', ///height image
+        'crop'      => 'false',
+        'upscale'   => 'true',
+        'linked'   	=> 'true', ///return link to post	
+    ), $atts );
+
+    $output			= $atribut['output'];
+    $width          = $atribut['width'];
+    $height         = $atribut['height'];
+    $crop           = $atribut['crop'];
+    $upscale        = $atribut['upscale'];
+    $linked        	= $atribut['linked'];
+	$urlimg			= get_the_post_thumbnail_url($post->ID,'full');
+
+	if($urlimg):
+		$urlresize      = aq_resize( $urlimg, $width, $height, $crop, true, $upscale );
+		if($output=='image'):
+			if($linked=='true'):
+				echo '<a href="'.get_the_permalink($post->ID).'" title="'.get_the_title($post->ID).'">';
+			endif;
+			echo '<img src="'.$urlresize.'" width="'.$width.'" height="'.$height.'" loading="lazy">';
+			if($linked=='true'):
+				echo '</a>';
+			endif;
+		else:
+			echo $urlresize;
+		endif;
+	endif;
+
+	return ob_get_clean();
+}
