@@ -15,6 +15,12 @@
  */
 
 /**
+ * Load other required files
+ *
+ */
+// require_once('inc/meta-box.php');
+
+/**
  * Load the parent style.css file
  *
  * @link http://codex.wordpress.org/Child_Themes
