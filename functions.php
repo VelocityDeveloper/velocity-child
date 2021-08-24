@@ -121,7 +121,7 @@ function velocitychild_theme_setup() {
 	endif;
 }
 
-//[resize-thumbnail width="300" height="150" linked="true"]
+//[resize-thumbnail width="300" height="150" linked="true" class="w-100"]
 add_shortcode('resize-thumbnail', 'resize_thumbnail');
 function resize_thumbnail($atts) {
     ob_start();
@@ -133,6 +133,7 @@ function resize_thumbnail($atts) {
         'crop'      => 'false',
         'upscale'   => 'true',
         'linked'   	=> 'true', ///return link to post	
+        'class'   	=> 'w-100', ///return class name to img	
     ), $atts );
 
     $output			= $atribut['output'];
@@ -141,6 +142,7 @@ function resize_thumbnail($atts) {
     $crop           = $atribut['crop'];
     $upscale        = $atribut['upscale'];
     $linked        	= $atribut['linked'];
+    $class        	= $atribut['class']?'class="'.$atribut['class'].'"':'';
 	$urlimg			= get_the_post_thumbnail_url($post->ID,'full');
 
 	if($urlimg):
@@ -149,7 +151,7 @@ function resize_thumbnail($atts) {
 			if($linked=='true'):
 				echo '<a href="'.get_the_permalink($post->ID).'" title="'.get_the_title($post->ID).'">';
 			endif;
-			echo '<img src="'.$urlresize.'" width="'.$width.'" height="'.$height.'" loading="lazy">';
+			echo '<img src="'.$urlresize.'" width="'.$width.'" height="'.$height.'" loading="lazy" '.$class.'>';
 			if($linked=='true'):
 				echo '</a>';
 			endif;
