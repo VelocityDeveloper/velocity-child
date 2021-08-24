@@ -172,7 +172,7 @@ function vd_getexcerpt($atts){
         'count'	=> '150', /// count character
     ), $atts );
 
-    $output		= $atribut['count'];
+    $count		= $atribut['count'];
     $excerpt	= get_the_content();
     $excerpt 	= strip_tags($excerpt);
     $excerpt 	= substr($excerpt, 0, $count);
