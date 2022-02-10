@@ -131,12 +131,14 @@ function resize_thumbnail($atts) {
         'width'    	=> '300', ///width image
         'height'    => '150', ///height image
         'crop'      => 'false',
-        'upscale'   => 'true',
+        'upscale'   	=> 'true',
         'linked'   	=> 'true', ///return link to post	
         'class'   	=> 'w-100', ///return class name to img	
+        'attachment' 	=> 'true'
     ), $atts );
 
     $output			= $atribut['output'];
+    $attach         = $atribut['attachment'];
     $width          = $atribut['width'];
     $height         = $atribut['height'];
     $crop           = $atribut['crop'];
@@ -144,6 +146,19 @@ function resize_thumbnail($atts) {
     $linked        	= $atribut['linked'];
     $class        	= $atribut['class']?'class="'.$atribut['class'].'"':'';
 	$urlimg			= get_the_post_thumbnail_url($post->ID,'full');
+	
+	if(empty($urlimg) && $attach == 'true'){
+          $attachments = get_posts( array(
+            'post_type' 		=> 'attachment',
+            'posts_per_page' 	=> 1,
+            'post_parent' 		=> $post->ID,
+        	'orderby'          => 'date',
+        	'order'            => 'DESC',
+          ) );
+          if ( $attachments ) {
+				$urlimg = wp_get_attachment_url( $attachments[0]->ID, 'full' );
+          }
+    }
 
 	if($urlimg):
 		$urlresize      = aq_resize( $urlimg, $width, $height, $crop, true, $upscale );
