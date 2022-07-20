@@ -198,3 +198,31 @@ function vd_getexcerpt($atts){
 
 	return ob_get_clean();
 }
+
+
+//[ratio-thumbnail size="medium" ratio="16:9"]
+add_shortcode('ratio-thumbnail', 'ratio_thumbnail');
+function ratio_thumbnail($atts) {
+    ob_start();
+	global $post;
+
+    $atribut = shortcode_atts( array(
+        'size'      => 'medium', // thumbnail, medium, large, full
+        'ratio'     => '16:9', // 16:9, 8:5, 4:3, 3:2, 1:1
+    ), $atts );
+
+    $size       = $atribut['size'];
+    $ratio      = $atribut['ratio'];
+    $ratio      = $ratio?str_replace(":","-",$ratio):'';
+	$urlimg     = get_the_post_thumbnail_url($post->ID,$size);
+
+    echo '<div class="ratio-thumbnail">';
+        echo '<a class="ratio-thumbnail-link" href="'.get_the_permalink($post->ID).'" title="'.get_the_title($post->ID).'">';
+            echo '<div class="ratio-thumbnail-box ratio-thumbnail-'.$ratio.'" style="background-image: url('.$urlimg.');">';
+                echo '<img src="'.$urlimg.'" loading="lazy" class="ratio-thumbnail-image"/>';
+            echo '</div>';
+        echo '</a>';
+    echo '</div>';
+
+	return ob_get_clean();
+}
