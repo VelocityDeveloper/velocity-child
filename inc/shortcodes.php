@@ -83,6 +83,13 @@ function vd_getexcerpt($atts){
 	return ob_get_clean();
 }
 
+// [vel-breadcrumbs]
+add_shortcode('vd-breadcrumbs','vd_breadcrumbs');
+function vd_breadcrumbs() {
+    ob_start();
+    echo justg_breadcrumb();
+    return ob_get_clean();
+}
 
 //[ratio-thumbnail size="medium" ratio="16:9"]
 add_shortcode('ratio-thumbnail', 'ratio_thumbnail');
