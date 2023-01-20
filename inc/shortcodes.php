@@ -57,6 +57,15 @@ function resize_thumbnail($atts) {
 		else:
 			echo $urlresize;
 		endif;
+
+	else:
+		if($linked=='true'):
+			echo '<a href="'.get_the_permalink($post->ID).'" title="'.get_the_title($post->ID).'">';
+		endif;
+		echo '<svg style="background-color: #ececec;width: 100%;height: auto;" width="'.$width.'" height="'.$height.'"></svg>';
+		if($linked=='true'):
+			echo '</a>';
+		endif;
 	endif;
 
 	return ob_get_clean();
