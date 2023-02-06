@@ -92,7 +92,7 @@ function vd_getexcerpt($atts){
 	return ob_get_clean();
 }
 
-// [vel-breadcrumbs]
+// [vd-breadcrumbs]
 add_shortcode('vd-breadcrumbs','vd_breadcrumbs');
 function vd_breadcrumbs() {
     ob_start();
