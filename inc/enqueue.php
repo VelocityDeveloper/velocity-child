@@ -41,4 +41,5 @@ if( ! function_exists( 'justg_child_enqueue_parent_style') ) {
         wp_enqueue_script( 'justg-custom-scripts', get_stylesheet_directory_uri() . '/js/custom.js', array(), $js_version, true );
 
 	}
+	add_action( 'wp_enqueue_scripts', 'justg_child_enqueue_parent_style' );
 }
