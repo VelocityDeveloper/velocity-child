@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @link http://codex.wordpress.org/Child_Themes
  */
-if( ! function_exists( 'justg_child_enqueue_parent_style') ) {
-	function justg_child_enqueue_parent_style() {
+if( ! function_exists( 'justg_child_enqueue_script_style') ) {
+	function justg_child_enqueue_script_style() {
 		// Dynamically get version number of the parent stylesheet (lets browsers re-cache your stylesheet when you update your theme)
 		$parenthandle = 'parent-style'; 
         $theme = wp_get_theme();
@@ -41,5 +41,5 @@ if( ! function_exists( 'justg_child_enqueue_parent_style') ) {
         wp_enqueue_script( 'justg-custom-scripts', get_stylesheet_directory_uri() . '/js/custom.js', array(), $js_version, true );
 
 	}
-	add_action( 'wp_enqueue_scripts', 'justg_child_enqueue_parent_style' );
+	add_action( 'wp_enqueue_scripts', 'justg_child_enqueue_script_style', 20 );
 }
